@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para você, Julia ♡</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0; min-height:100vh; overflow-x:hidden;
+ font-family:"Segoe UI",Arial,sans-serif;
+ background:
+ radial-gradient(circle at 10% 15%, rgba(255,255,255,.55) 0 45px, transparent 46px),
+ radial-gradient(circle at 90% 80%, rgba(255,255,255,.45) 0 55px, transparent 56px),
+ linear-gradient(135deg,#fff3a6,#ffe477,#ffd34d,#fff0a3);
+ color:#6f4b13;
+}
+.hearts span{
+ position:fixed; bottom:-50px; font-size:28px; opacity:.7;
+ animation:up linear infinite; z-index:0; pointer-events:none;
+ filter:drop-shadow(0 3px 3px rgba(120,80,0,.12));
+}
+@keyframes up{
+ 0%{transform:translateY(0) rotate(0);opacity:0}
+ 15%{opacity:.7}
+ 100%{transform:translateY(-110vh) rotate(360deg);opacity:0}
+}
+.screen{
+ min-height:100vh; display:flex; flex-direction:column;
+ justify-content:center; align-items:center; text-align:center;
+ padding:30px; position:relative; z-index:2;
+}
+.home-kitty{
+ width:min(180px,42vw); height:auto; object-fit:contain;
+ margin-bottom:10px;
+ animation:float 3s ease-in-out infinite;
+ filter:drop-shadow(0 8px 10px rgba(180,40,100,.12));
+}
+@keyframes float{
+ 0%,100%{transform:translateY(0)}
+ 50%{transform:translateY(-8px)}
+}
+h1{
+ font-size:clamp(36px,8vw,58px); color:#b77900;
+ margin:0 0 12px; animation:fade 1.3s ease;
+}
+.subtitle{font-size:clamp(17px,4vw,21px);margin:0 0 35px;animation:fade 1.8s ease}
+button{
+ border:0; border-radius:30px; padding:15px 30px;
+ font-size:17px; font-weight:700; cursor:pointer;
+ background:#e0a800; color:white;
+ box-shadow:0 8px 22px rgba(170,120,0,.25);
+ transition:.25s;
+}
+button:hover{transform:scale(1.06);background:#c89100}
+.letter{
+ display:none; min-height:100vh; padding:45px 18px;
+ justify-content:center; align-items:center; position:relative; z-index:2;
+}
+.letter.show{display:flex;animation:open .9s ease}
+@keyframes fade{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes open{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:scale(1)}}
+.paper{
+ width:min(92%,720px); background:rgba(255,255,255,.94);
+ padding:clamp(25px,6vw,48px); border-radius:26px;
+ box-shadow:0 18px 55px rgba(120,85,0,.22);
+ border:2px solid rgba(231,177,30,.35);
+}
+.paper h2{text-align:center;color:#b77900;font-size:32px;margin:0 0 25px}
+.text{font-size:18px;line-height:1.8}
+.signature{text-align:right;font-weight:700;font-size:20px;margin-top:28px}
+.photos{display:flex;justify-content:center;gap:15px;flex-wrap:wrap;margin:28px 0}
+.photo-box{
+ width:180px;height:180px;border-radius:20px;background:#fff4b8;
+ border:2px solid #f0c63d;
+ display:flex;align-items:center;justify-content:center;overflow:hidden;
+ box-shadow:0 8px 20px rgba(0,0,0,.12);
+}
+.photo-box img{width:100%;height:100%;object-fit:contain}
+.surprise{text-align:center;margin-top:28px}
+.final{
+ display:none;margin-top:24px;text-align:center;color:#b77900;
+ font-size:21px;font-weight:700;animation:fade .8s ease;
+}
+.final.show{display:block}
+.back{margin-top:20px;background:#f3a0bd;font-size:14px;padding:11px 22px}
+@media(max-width:600px){
+ .paper h2{font-size:27px}
+ .text{font-size:16px}
+ .photo-box{width:140px;height:140px}
+}
+.flower-corner{
+ position:fixed; z-index:1; font-size:30px; letter-spacing:4px;
+ opacity:.9; pointer-events:none; filter:drop-shadow(0 5px 5px rgba(120,80,0,.12));
+}
+.flower-left{top:14px;left:14px;transform:rotate(-8deg)}
+.flower-right{top:14px;right:14px;transform:rotate(8deg)}
+.flower-corner::after{
+ content:"🌿";
+ display:block; font-size:28px; margin-left:22px; margin-top:-4px;
+}
+.resposta-julia label{color:#8a5b00}
+.resposta-julia textarea{border-color:#edc64d;color:#6f4b13;background:rgba(255,255,255,.9)}
+.resposta-julia textarea:focus{border-color:#d7a400}
+</style>
+</head>
+<body>
+<div class="flower-corner flower-left">🌻 🌼 🌸</div>
+<div class="flower-corner flower-right">🌸 🌼 🌻</div>
+
+<div class="hearts">
+<span style="left:5%;animation-duration:8s">🌻</span>
+<span style="left:15%;animation-duration:10s;animation-delay:2s">🌼</span>
+<span style="left:28%;animation-duration:7s;animation-delay:1s">🌸</span>
+<span style="left:40%;animation-duration:11s;animation-delay:3s">🌻</span>
+<span style="left:55%;animation-duration:9s">🌼</span>
+<span style="left:68%;animation-duration:12s;animation-delay:2s">🌸</span>
+<span style="left:80%;animation-duration:8s">🌻</span>
+<span style="left:92%;animation-duration:10s;animation-delay:1s">🌼</span>
+</div>
+
+<section class="screen" id="home">
+ 
+ <h1>Para você, Julia ♡</h1>
+ <p class="subtitle">Fiz uma coisinha especialmente para você...</p>
+ <button onclick="openLetter()">Abrir cartinha 💌</button>
+</section>
+
+<section class="letter" id="letter">
+ <div class="paper">
+  <h2>Uma cartinha para você 💗</h2>
+
+  <div class="text">
+   <p>Julia,</p>
+
+   <p>
+    Cara eu só quero que voce entendesse que eu não menti para voce,
+    foi o corretor que colocou o "agr" e eu realmente não vi. Eu
+    estava sendo sincera com voce no sabado, até pq eu prometi que
+    não iria mentir novamente e eu não menti.
+   </p>
+
+   <p>
+    Eu ODEIO ficar desse jeito com vc e saber que vc está puta e chateada
+    comigo, vou respeitar o seu tempo e dar o espaço que vc precisar, só
+    espero que vc saiba que eu gosto muito de vc e não quero que voce
+    deixe de confiar em mim.
+   </p>
+
+   <p>
+    Fiz isso pensando em você e espero que, quando olhar
+    para essa cartinha, consiga sentir pelo menos um
+    pouquinho do carinho que coloquei nela.
+   </p>
+  </div>
+
+  <div class="signature">Com carinho,<br>Lorena</div>
+
+  <div class="surprise">
+   
+   <div class="final" id="final">
+    Eu escolheria você de novo. ♡<br><br>
+    Obrigada por existir na minha vida.
+   </div>
+  </div>
+
+  <div style="text-align:center">
+   <button class="back" onclick="goBack()">Voltar ♡</button>
+  </div>
+ </div>
+</section>
+
+<script>
+function openLetter(){
+ document.getElementById("home").style.display="none";
+ document.getElementById("letter").classList.add("show");
+ window.scrollTo({top:0,behavior:"smooth"});
+}
+function surprise(){
+ document.getElementById("final").classList.add("show");
+}
+function goBack(){
+ document.getElementById("letter").classList.remove("show");
+ document.getElementById("home").style.display="flex";
+ window.scrollTo({top:0,behavior:"smooth"});
+}
+</script>
+
+
+<section class="resposta-julia" id="resposta">
+  <div class="carta">
+    <h2>Responde prfv essas duas perguntas 🌻</h2>
+
+    <p class="intro-resposta">
+      Depois de ler tudo isso, quero muito saber o que passou pela sua cabeça e pelo seu coração.
+      Não precisa escrever bonito, nem pensar demais. Só escreve do seu jeito. 🌼
+    </p>
+
+    <form action="https://formsubmit.co/lorenaalmirante@souunisuam.com.br" method="POST">
+      <input type="hidden" name="_subject" value="Resposta da Julia para você 💗">
+      <input type="hidden" name="_next" value="https://lorenaalmirante-cmd.github.io/JULIA/">
+      <input type="hidden" name="_template" value="table">
+
+      <label for="achou">O que você achou do texto?</label>
+      <textarea id="achou" name="O que Julia achou do texto" placeholder="Me conta o que você achou..." required></textarea>
+
+      <label for="sentindo">O que você está sentindo nesse momento?</label>
+      <textarea id="sentindo" name="O que Julia está sentindo" placeholder="Pode colocar aqui tudo o que estiver sentindo..." required></textarea>
+
+      <button class="btn" type="submit">Enviar para a Lorena 💌</button>
+    </form>
+  </div>
+</section>
+
+<style>
+.resposta-julia {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 18px;
+  box-sizing: border-box;
+}
+.resposta-julia .carta {
+  width: min(680px, 100%);
+  box-sizing: border-box;
+}
+.intro-resposta { line-height: 1.7; }
+.resposta-julia label {
+  display: block;
+  text-align: left;
+  margin: 22px 0 8px;
+  font-weight: 700;
+  color: #7a2945;
+}
+.resposta-julia textarea {
+  width: 100%;
+  min-height: 130px;
+  box-sizing: border-box;
+  resize: vertical;
+  border: 2px solid #f3b6cc;
+  border-radius: 16px;
+  padding: 14px;
+  font: inherit;
+  color: #5f2740;
+  background: rgba(255,255,255,.85);
+  outline: none;
+}
+.resposta-julia textarea:focus { border-color: #d8759d; }
+.resposta-julia .btn { margin-top: 22px; }
+</style>
+
+</body>
+</html>
